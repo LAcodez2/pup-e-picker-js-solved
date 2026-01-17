@@ -13,21 +13,23 @@ export class ClassSection extends Component {
           </Link>
 
           <div className="selectors">
-            {/* This should display the favorited count */}
             <div className={`selector`} onClick={() => {}}>
               favorited ( 0 )
             </div>
 
-            {/* This should display the unfavorited count */}
             <div className={`selector`} onClick={() => {}}>
               unfavorited ( 0 )
             </div>
+
             <div className={`selector active`} onClick={() => {}}>
               create dog
             </div>
           </div>
         </div>
-        <div className="content-container"></div>
+
+        <div className="content-container">
+          {this.props.children}
+        </div>
       </section>
     );
   }

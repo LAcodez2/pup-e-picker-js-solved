@@ -8,9 +8,11 @@ export function FunctionalApp() {
       <header>
         <h1>pup-e-picker (Functional)</h1>
       </header>
-      <FunctionalSection />
-      <FunctionalDogs />
-      <FunctionalCreateDogForm />
+
+      <FunctionalSection>
+        <FunctionalDogs />
+        <FunctionalCreateDogForm />
+      </FunctionalSection>
     </div>
   );
 }

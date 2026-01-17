@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const FunctionalSection = () => {
+export const FunctionalSection = ({children}) => {
   return (
     <section id="main-section">
       <div className="container-header">
@@ -23,7 +23,9 @@ export const FunctionalSection = () => {
           </div>
         </div>
       </div>
-      <div className="content-container"></div>
+      <div className="content-container">
+        {children}
+      </div>
     </section>
   );
 };
