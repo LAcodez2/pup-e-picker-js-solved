@@ -1,31 +1,51 @@
 import { Link } from "react-router-dom";
 
-export const FunctionalSection = ({children}) => {
+export const FunctionalSection = ({
+  children,
+  activeTab,
+  onToggleTab,
+  favoritesCount,
+  unfavoritesCount,
+}) => {
+  const tabClass = (tab) => `selector ${activeTab === tab ? "active" : ""}`;
+
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">Dogs: </div>
+
         <Link to={"/class"} className="btn">
           Change to Class
         </Link>
+
         <div className="selectors">
-          {/* This should display the favorited count */}
-          <div className={`selector active`} onClick={() => {}}>
-            favorited ( 12 )
+          {/* Favorited */}
+          <div
+            className={tabClass("favorited")}
+            onClick={() => onToggleTab("favorited")}
+          >
+            favorited ( {favoritesCount} )
           </div>
 
-          {/* This should display the unfavorited count */}
-          <div className={`selector`} onClick={() => {}}>
-            unfavorited ( 25 )
+          {/* Unfavorited */}
+          <div
+            className={tabClass("unfavorited")}
+            onClick={() => onToggleTab("unfavorited")}
+          >
+            unfavorited ( {unfavoritesCount} )
           </div>
-          <div className={`selector`} onClick={() => {}}>
+
+          {/* Create */}
+          <div
+            className={tabClass("create")}
+            onClick={() => onToggleTab("create")}
+          >
             create dog
           </div>
         </div>
       </div>
-      <div className="content-container">
-        {children}
-      </div>
+
+      <div className="content-container">{children}</div>
     </section>
   );
 };

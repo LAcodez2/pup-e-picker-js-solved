@@ -3,6 +3,8 @@ import { dogPictures } from "../dog-pictures";
 
 // Right now these dogs are constant, but in reality we should be getting these from our server
 export const FunctionalDogs = () => {
+dogs,
+onTrash
   return (
     //  the "<> </>"" are called react fragments, it's like adding all the html inside
     // without adding an actual html element
