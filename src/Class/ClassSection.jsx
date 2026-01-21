@@ -3,6 +3,16 @@ import { Link } from "react-router-dom";
 
 export class ClassSection extends Component {
   render() {
+    const {
+      children,
+      activeTab,
+      onToggleTab,
+      favoritesCount,
+      unfavoritesCount,
+    } = this.props;
+
+    const tabClass = (tab) => `selector ${activeTab === tab ? "active" : ""}`;
+
     return (
       <section id="main-section">
         <div className="container-header">
@@ -13,23 +23,36 @@ export class ClassSection extends Component {
           </Link>
 
           <div className="selectors">
-            <div className={`selector`} onClick={() => {}}>
-              favorited ( 0 )
+            <div
+              className={tabClass("favorited")}
+              onClick={() => {
+                onToggleTab("favorited");
+              }}
+            >
+              favorited ( {favoritesCount} )
             </div>
 
-            <div className={`selector`} onClick={() => {}}>
-              unfavorited ( 0 )
+            <div
+              className={tabClass("unfavorited")}
+              onClick={() => {
+                onToggleTab("unfavorited");
+              }}
+            >
+              unfavorited ( {unfavoritesCount} )
             </div>
 
-            <div className={`selector active`} onClick={() => {}}>
+            <div
+              className={tabClass("create")}
+              onClick={() => {
+                onToggleTab("create");
+              }}
+            >
               create dog
             </div>
           </div>
         </div>
 
-        <div className="content-container">
-          {this.props.children}
-        </div>
+        <div className="content-container">{children}</div>
       </section>
     );
   }
